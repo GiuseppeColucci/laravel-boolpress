@@ -10,3 +10,8 @@ class Author extends Model
         return $this->hasOne('App\UserDetail'); //stiamo definendo la relazione(one to one) tra i modelli
     }
 }
+/**
+ * se ho capito bene è qui che noi colleghiamole due tabelle e creamo le relazioni..... NEI MODEL!!
+ * a ogni tabella corrisponde un MODEL in questo caso il model Author corrisponde alla tabella create_ authors_table.
+ * mentre il model UseDetails corrisponde alla tabella creata_user_details_table.
+ */

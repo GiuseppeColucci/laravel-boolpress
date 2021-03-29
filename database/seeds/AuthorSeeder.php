@@ -1,9 +1,10 @@
 <?php
 
 use App\UserDetail;
+use App\Author;
 use Illuminate\Database\Seeder;
-use Faker\generator as Faker;
-class Author extends Seeder
+use Faker\Generator as Faker;
+class AuthorSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +15,7 @@ class Author extends Seeder
     {
         //stiamo creando immagini random
         $faker->addProvider(new WW\Faker\Provider\Picture($faker));
-        //qui stimao popolando in maniera randomica i di 2 MODEL
+        //qui stimao popolando in maniera randomica i di 2 MODEL che sono: atuthor e userDetail
 
         $author = new Author();
         $author->name='john';
@@ -24,10 +25,10 @@ class Author extends Seeder
 
         $userDetail= new UserDetail();
         $userDetail->bio ='lorem ipsum';
-        $userDetail->websit ='http://example.com';
+        $userDetail->website ='http://example.com';
         $userDetail->pic =$faker->pictureUrl(250, 250);
 
-        $author->detail->save($userDetail);//stiamo dicendo. vai nel author prendi il suo dato e salvalo in userdetail
+        $author->detail()->save($userDetail);//stiamo dicendo. vai nel author prendi il suo dato e salvalo in userdetail
 
 
 
