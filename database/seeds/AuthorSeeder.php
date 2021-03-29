@@ -14,21 +14,23 @@ class AuthorSeeder extends Seeder
     public function run(Faker $faker)
     {
         //stiamo creando immagini random
-        $faker->addProvider(new WW\Faker\Provider\Picture($faker));
+
         //qui stimao popolando in maniera randomica i di 2 MODEL che sono: atuthor e userDetail
+        for($i =0 ; $i<50; $i++){
 
-        $author = new Author();
-        $author->name='john';
-        $author->surname='richmond';
-        $author->email='jon@richmond.com';
-        $author->save();
+            $author = new Author();
+            $author->name=$faker->firstName();
+            $author->surname=$faker->lastName();
+            $author->email=$faker->email();
+            $author->save();
 
-        $userDetail= new UserDetail();
-        $userDetail->bio ='lorem ipsum';
-        $userDetail->website ='http://example.com';
-        $userDetail->pic =$faker->pictureUrl(250, 250);
+            $userDetail= new UserDetail();
+            $userDetail->bio =$faker->text();
+            $userDetail->website =$faker->url();
+            $userDetail->pic ='https://picsum.photos/seed/'. rand(0, 1000).'/200/300';
 
-        $author->detail()->save($userDetail);//stiamo dicendo. vai nel author prendi il suo dato e salvalo in userdetail
+            $author->detail()->save($userDetail);//stiamo dicendo. vai nel author prendi il suo dato e salvalo in userdetail
+        }
 
 
 

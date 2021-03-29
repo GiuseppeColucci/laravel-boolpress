@@ -24,7 +24,13 @@ class CreateUserDetailsTable extends Migration
 
 
             $table->timestamps();
-
+           /**
+            * TUTTO QUESTO:
+            *$table->foreign('author_id')
+            *->references('id')
+            *->on('authors');
+            * crea la foreign author_id che si riferisce all'ID di Authors
+           */
             $table->foreign('author_id')//questa è la nostra forekey che stiamo collegando alla tabella AUTHORS!!
                 ->references('id')//questo è l'id di che si andra a collegare in AUTHOR_TABLE
                 ->on('authors');//è il nome della tabella da dove prende appunto l'ID!!
