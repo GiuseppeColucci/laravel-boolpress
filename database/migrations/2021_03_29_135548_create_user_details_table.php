@@ -14,6 +14,7 @@ class CreateUserDetailsTable extends Migration
     public function up()
     {
         Schema::create('user_details', function (Blueprint $table) {
+        //AVVISO!!!!!! QUI STIAMO COLLEGANDO LE 2 TABELLE PER AVERE UNA RELAZIOEN ONE TOONE!!
             $table->id();
             $table->unsignedBigInteger('author_id');//con (author_id) abbiamomesso il sigolare di authors_id IL NOME AUTHOR_ID è UN NOME INVENTATO DA NOI!!
 
