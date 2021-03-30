@@ -29,14 +29,17 @@ class PostSeeder extends Seeder
             $userDetail->bio =$faker->text();
             $userDetail->website =$faker->url();
             $userDetail->pic ='https://picsum.photos/seed/'. rand(0, 1000).'/200/300';
+            for($x=0; $x<rand(2, 5); $x++){
 
-            $post= new Post();
-            $post->title=$faker->text(20);
-            $post->body=$faker->text(1000);
+                $post= new Post();
+                $post->title=$faker->text(20);
+                $post->body=$faker->text(1000);
+                $author->post()->save($post);
+            }
 
 
             $author->detail()->save($userDetail);//stiamo dicendo. vai nel author prendi il suo dato e salvalo in userdetail
-            $author->post()->save($post);
+
         }
 
 
