@@ -2,9 +2,10 @@
 
 use App\UserDetail;
 use App\Author;
+use App\Post;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
-class AuthorSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -29,7 +30,13 @@ class AuthorSeeder extends Seeder
             $userDetail->website =$faker->url();
             $userDetail->pic ='https://picsum.photos/seed/'. rand(0, 1000).'/200/300';
 
+            $post= new Post();
+            $post->title=$faker->text(20);
+            $post->body=$faker->text(1000);
+
+
             $author->detail()->save($userDetail);//stiamo dicendo. vai nel author prendi il suo dato e salvalo in userdetail
+            $author->post()->save($post);
         }
 
 
