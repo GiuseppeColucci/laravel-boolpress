@@ -9,6 +9,10 @@ class Author extends Model
     public function detail(){
         return $this->hasOne('App\UserDetail'); //stiamo definendo la relazione(one to one) tra i modelli
     }
+
+    public function post(){
+        return $this->hasMany('App\Post');
+    }
 }
 /**
  * se ho capito bene è qui che noi colleghiamole due tabelle e creamo le relazioni..... NEI MODEL!!
