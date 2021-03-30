@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 Route::get('/author','AuthorController@index');
 
-Route::resource('post','PostController@index');//controller della crude
+Route::resource('post','PostController');//controller della crude
