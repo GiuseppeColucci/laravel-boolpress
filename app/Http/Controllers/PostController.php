@@ -18,8 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $posts=Post::all();
-        $tags=Tag::all();
-        return view('post.index',compact('posts','tags'));
+        return view('post.index',compact('posts'));
     }
 
     /**
@@ -30,8 +29,9 @@ class PostController extends Controller
     public function create()
     {
         $authors=Author::all();
+        $tags=Tag::all();
 
-        return view('post.create', compact('authors'));
+        return view('post.create', compact('authors','tags'));
 
     }
 
@@ -47,6 +47,7 @@ class PostController extends Controller
         $post= new Post();
         $post->fill($data);
         $post->save();
+        $post->tags()->attach($data['tags']);
         return redirect()->route('post.index');
     }
 

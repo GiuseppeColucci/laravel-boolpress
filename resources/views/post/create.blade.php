@@ -31,12 +31,8 @@
 
         <select class="custom-select" name='tags'id='tags' multiple>
             @foreach ($tags as $tag )
-
-            @endforeach
-            {{-- @foreach ($tags as $tag )
             <option value={{$tag->id}}>{{$tag->name}}</option>
-
-            @endforeach --}}
+            @endforeach
           </select>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
