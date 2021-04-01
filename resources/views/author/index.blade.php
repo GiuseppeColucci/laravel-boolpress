@@ -22,9 +22,9 @@
           <td>{{$author->name}}</td>
           <td>{{$author->surname}}</td>
           <td>{{$author->email}}</td>
-          <td>{{$author->detail->bio}}</td>
-          <td>{{$author->detail->website}}</td>
-          <td><img src="{{$author->detail->pic}}"></td>
+          <td>{{$author->detail['bio']}}</td>
+          <td>{{$author->detail['website']}}</td>
+          <td><img src="{{$author->detail['pic']}}"></td>
 
         </tr>
 
