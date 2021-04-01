@@ -13,7 +13,7 @@ class Post extends Model
     }
 
     public function tags(){
-        return $this->belongsToMaby('App\Tag');
+        return $this->belongsToMany('App\Tag');//OGNI TAG AVRA TANTI SINGOLI POST
     }
 
 }

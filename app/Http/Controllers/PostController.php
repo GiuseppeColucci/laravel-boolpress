@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Author;
+use App\Tag;
+
 
 class PostController extends Controller
 {
@@ -16,7 +18,8 @@ class PostController extends Controller
     public function index()
     {
         $posts=Post::all();
-        return view('post.index',compact('posts'));
+        $tags=Tag::all();
+        return view('post.index',compact('posts','tags'));
     }
 
     /**
